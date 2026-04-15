@@ -34,7 +34,7 @@ export function Content() {
 
     useEffect(() => {
         fetchPrices() // fetch immediately on mount
-        const interval = setInterval(fetchPrices, 20000)
+        const interval = setInterval(fetchPrices, 30000)
         return () => clearInterval(interval)
     }, [])
     return (

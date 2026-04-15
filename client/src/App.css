@@ -95,8 +95,12 @@ nav {
 .menu {
   height: 26px;
   filter: invert();
+  transition: all 133ms ease;
+  outline: 1px solid #8cff0000;
 }
-
+.menu_open {
+  outline: 1px solid #8bff00;
+}
 
 .content {
   padding: 0rem 0;
@@ -227,9 +231,11 @@ main {
 
 nav {
   background: #05030c;
-  z-index: 100;
+  z-index: 200;
 }
-
+.sidebar {
+  background: rgba(75, 74, 74, 0.07);
+}
 .sidebar-item {
   display: grid;
   grid-template-columns: 1fr;
@@ -258,7 +264,7 @@ nav {
 
 .side-bot {
   height: 333px;
-  background-color: rgba(128, 128, 128, 0.068);
+  background-color: rgba(0,0,0,0);
 }
 
 /* Inline | http://localhost:5173/ */
@@ -820,10 +826,6 @@ main {
   border-radius: 9px;
 }
 
-.side-bot {
-  /* background-color: rgba(128, 128, 128, 0.068); */
-  background-color: rgba(75, 74, 74, 0.07);
-}
 
 /* Inline | http://localhost:5173/ */
 
@@ -1350,7 +1352,7 @@ main {
 .search-bar {
   background: rgba(0, 0, 0, 0);
   color: white;
-transition:all 133ms ease;
+  transition:all 133ms ease;
   border: none;
   outline:1px solid rgba(0, 0, 0, 0);
   padding: 7px 10px;
@@ -1370,4 +1372,31 @@ transition:all 133ms ease;
 .search-bar:focus {
   opacity: 1;
   outline: 1px solid rgb(111, 0, 255);
+}
+.nav_menu_btn {
+  background-color: rgba(0,0,0,0);
+  border: none;
+  width:max-content;
+  align-self: center;
+  display: grid;
+  place-items: center;
+}
+.main_overlay {
+  opacity: 1;
+  background: #05030ce3;
+  width: 100%;
+  margin: 0 auto;
+  height: 100svh;
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  top: var(--navHeight);
+  display:grid;grid-template: 1fr;grid-template-rows: 1fr;
+}
+.main_overlay_content {
+    width: min(1282px, calc(100% - 3rem + 2px));
+    justify-self: center;
+    background: #05030c;
+    padding: 0 1px;
 }

@@ -8,7 +8,6 @@ import { CanvasComponent } from "../components/dash-canvas-graph"
 interface DashItemProps {
     label: string
     value: string
-    
 }
 
 interface DashbarProps {
