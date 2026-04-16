@@ -1,10 +1,12 @@
 import sideIcon from "../assets/hero.png"
+import { FormLogin } from "../components/FormLogin"
 
 export function SideBar() {
     return (
         <>
             <aside className="sidebar">
                 <div className="sidebar-item">
+                    <FormLogin />
                     <div className="side-top">
                         <div className="side-icon">
                             <img src={sideIcon} alt="" />
