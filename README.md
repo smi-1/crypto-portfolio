@@ -10,4 +10,4 @@ React · TypeScript · Node.js · Express · PostgreSQL · Prisma · Supabase
 - User authentication
 - Personal portfolio tracking
 
-![App preview](screenshots/preview.png)
+![App preview](screenshots/git_profile_image.png)
