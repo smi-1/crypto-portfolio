@@ -9,3 +9,5 @@ React · TypeScript · Node.js · Express · PostgreSQL · Prisma · Supabase
 - Live coin data from CoinMarketCap
 - User authentication
 - Personal portfolio tracking
+
+![App preview](screenshots/preview.png)
