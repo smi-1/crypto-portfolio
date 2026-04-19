@@ -1419,6 +1419,7 @@ main {
   flex-direction: column;
   gap: 9px;
   max-width:444px;
+  width: min(444px, 100%);
 }
 
 .form_style label {
@@ -1491,4 +1492,9 @@ button {
   font-weight: 600;
   bottom: 1rem;
   z-index: 500;
+}
+.login-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
 }

@@ -34,8 +34,8 @@ export function FormLogin() {
     }
     
     return (
+        <div className="login-wrap">
         <form className="form_login form_style">
-            
             <div className="form_extra">Log in</div>
             <label htmlFor="">
                 <p className="form_title">Username</p>
@@ -53,7 +53,7 @@ export function FormLogin() {
             </label>
             {error && <p style={{ color: "red" }}>{error}</p>}
             <div className="btn-login-wrap"><button className="btn-login" type="button" onClick={handleLogin}>Log in</button></div>
-            
         </form>
+        </div>
     )
 }
