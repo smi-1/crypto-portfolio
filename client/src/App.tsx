@@ -29,8 +29,7 @@ function AppContent() {
               <SideBar />
             </>
           } />
-          <Route path={ROUTES.LOGIN} element={
-            <main><FormLogin /></main>} />
+          <Route path={ROUTES.LOGIN} element={ <FormLogin /> } />
           <Route
             path={ROUTES.DASHBAR}
             element={
