@@ -6,7 +6,7 @@ export function SideBar() {
         <>
             <aside className="sidebar">
                 <div className="sidebar-item">
-                    <FormLogin />
+                    
                     <div className="side-top">
                         <div className="side-icon">
                             <img src={sideIcon} alt="" />

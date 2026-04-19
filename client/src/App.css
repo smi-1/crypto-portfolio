@@ -1478,3 +1478,16 @@ padding: 0px 5px 4px 5px;
 
   font-size: 13px;
 }
+button {
+  display:grid;place-content:center;place-items: center;
+}
+.testing{
+  position: fixed;
+  left:50%;
+  transform:translate(-50%);
+  padding: 1rem;
+  border: 1px solid lime;
+  font-weight: 600;
+  bottom: 1rem;
+  z-index: 500;
+}
