@@ -1126,12 +1126,13 @@ main {
 .itemRow {
   padding: 14px calc(1rem - 2px);
 }
+.canvas-wrap {
+  grid-column: 1 / 4;
+}
 
 .canvas-graph {
   background: #10101000;
-
   border-radius: 3px;
-  grid-column: 1 / 4;
   width: 100%;
 }
 
