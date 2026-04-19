@@ -1493,6 +1493,9 @@ button {
   bottom: 1rem;
   z-index: 500;
 }
+.login-wrap .form_login {
+  box-sizing: border-box;
+}
 .login-wrap {
   grid-column: 1 / -1;
   display: grid;
