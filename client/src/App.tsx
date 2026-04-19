@@ -20,16 +20,17 @@ function AppContent() {
     <BrowserRouter>
       <NavBar onMenuClick={() => setShowOverlay(prev => !prev)} isOpen={showOverlay} />
       <main>
+        <Overlay isOpen={showOverlay} onClose={() => setShowOverlay(prev => !prev)}>
+          <SideBar />
+        </Overlay>
         <Routes>
           <Route path="/" element={
-            <>        <Overlay isOpen={showOverlay} onClose={() => setShowOverlay(prev => !prev)}>
-              <SideBar />
-            </Overlay>
-              <Content />
-              <SideBar />
+            <> 
+            <Content />
+            <SideBar />
             </>
           } />
-          <Route path={ROUTES.LOGIN} element={ <FormLogin /> } />
+          <Route path={ROUTES.LOGIN} element={<FormLogin />} />
           <Route
             path={ROUTES.DASHBAR}
             element={
