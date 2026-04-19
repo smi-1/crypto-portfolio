@@ -11,7 +11,7 @@ export function NavBar({ onMenuClick, isOpen }: { onMenuClick: () => void; isOpe
         <>
             <nav>
                 <div className="inner-nav">
-                    <div className="nav-left"><img className="logo" src={logo}/></div>
+                    <div className="nav-left"><a href="/"><img className="logo" src={logo}/></a></div>
                     <div className="nav-center"></div>
                     <div className="nav-right">
                         { user ? <Logout /> : <BtnLogin /> }

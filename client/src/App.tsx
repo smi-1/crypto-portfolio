@@ -19,27 +19,28 @@ function AppContent() {
   return (
     <BrowserRouter>
       <NavBar onMenuClick={() => setShowOverlay(prev => !prev)} isOpen={showOverlay} />
-      <Routes>
-        <Route path="/" element={
-          <main>
-            <Overlay isOpen={showOverlay} onClose={() => setShowOverlay(prev => !prev)}>
+      <main>
+        <Routes>
+          <Route path="/" element={
+            <>        <Overlay isOpen={showOverlay} onClose={() => setShowOverlay(prev => !prev)}>
               <SideBar />
             </Overlay>
-            <Content />
-            <SideBar />
-          </main>
-        } />
-        <Route path={ROUTES.LOGIN} element={
-          <main><FormLogin /></main>} />
-        <Route
-          path={ROUTES.DASHBAR}
-          element={
-            <PrivateRoute>
-              <TestMessage />
-            </PrivateRoute>
-          }
-        />
-      </Routes>
+              <Content />
+              <SideBar />
+            </>
+          } />
+          <Route path={ROUTES.LOGIN} element={
+            <main><FormLogin /></main>} />
+          <Route
+            path={ROUTES.DASHBAR}
+            element={
+              <PrivateRoute>
+                <TestMessage />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }
