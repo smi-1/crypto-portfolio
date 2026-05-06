@@ -7,17 +7,20 @@ interface ContentFiltersProps {
     setListView: (value: boolean) => void;
     search: string;
     setSearch: (value: string) => void;
+    portfolioView: boolean;
+    setPortfolioView: (value: boolean) => void;
 }
 
 
-export function ContentFilters({ listView, setListView, search, setSearch }: ContentFiltersProps) {
+
+export function ContentFilters({ listView, setListView, search, setSearch, portfolioView, setPortfolioView }: ContentFiltersProps) {
     console.log(searchIcon)
     return (
         <div className="content-filters">
             <div className="cf-left">
 
-                <input 
-                    style={{ backgroundImage: `url("${searchIcon}")`}}
+                <input
+                    style={{ backgroundImage: `url("${searchIcon}")` }}
                     type="text"
                     value={search}
                     onChange={e => setSearch(e.target.value)}
@@ -30,15 +33,17 @@ export function ContentFilters({ listView, setListView, search, setSearch }: Con
                     className={`filter filter-list ${listView ? "active" : ""}`}
                     onClick={() => setListView(true)}
                 >
-                 <img src={list} className="filter-src" alt="list" />   
+                    <img src={list} className="filter-src" alt="list" />
                 </button>
                 <button
                     className={`filter filter-grid ${!listView ? "active" : ""}`}
                     onClick={() => setListView(false)}
                 >
-                    <img src={grid} className="filter-src" alt="list" />   
+                    <img src={grid} className="filter-src" alt="list" />
                 </button>
-
+                <div className="portfolioFilterWrap">
+                    <button className={`portfolioFilterBtn ${portfolioView ? "portfolioViewActive" : ""}`} onClick={() => setPortfolioView(prev => !prev)}>Portfolio view</button>
+                </div>
             </div>
         </div>
     );

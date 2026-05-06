@@ -5,7 +5,7 @@ import { Dashbar } from "./Dashbar"
 import type { CoinData } from "../types/api.types"
 import { ContentFilters } from "./ContentFilters"
 
-function CoinRow({ coin }: { coin: CoinData }) {
+function CoinRow({ coin, portfolioView }: { coin: CoinData, portfolioView: boolean }) {
     const [flash, setFlash] = useState(false)
     const prevPrice = useRef(coin.quote.USD.price)
 
@@ -22,15 +22,28 @@ function CoinRow({ coin }: { coin: CoinData }) {
             <p>{coin.cmc_rank}</p>
             <img className="coin" src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`} />
             <div className="item-info">
-                <p>{coin.name}<span>{coin.symbol}</span></p>
+                <div className="coin-row">{portfolioView ? <div className="portfolioItem">Owned: {checkAmount(coin.id)}</div> : ""}</div><p>{coin.name}<span>{coin.symbol}</span></p>
                 <p className={flash ? "price-flash price" : "price"}>${coin.quote.USD.price.toFixed(4)}</p></div>
+
         </div>
     )
+}
+// coin db for testing
+const coinDb = [
+    { id: 1, amount: 100 },
+    { id: 2, amount: 200 },
+]
+function checkOwned(coinId: number) {
+    return coinDb.find(coin => coin.id === coinId) !== undefined;
+}
+function checkAmount(coinId: number) {
+    return coinDb.find(coin => coin.id === coinId)?.amount;
 }
 export function Content() {
     const { data, loading, fetchPrices } = useGetPrices()
     const [listView, setListView] = useState(false);
     const [search, setSearch] = useState("");
+    const [portfolioView, setPortfolioView] = useState<boolean>(false);
 
     useEffect(() => {
         fetchPrices() // fetch immediately on mount
@@ -46,13 +59,13 @@ export function Content() {
                     </button>
                 </div>
                 <Dashbar data={data} />
-                <ContentFilters listView={listView} setListView={setListView} search={search} setSearch={setSearch} />
-                {data && data
+                <ContentFilters listView={listView} setListView={setListView} search={search} setSearch={setSearch} portfolioView={portfolioView} setPortfolioView={setPortfolioView} />
+                {data && data.filter(coin => portfolioView ? checkOwned(coin.id) : true)
                     .filter(coin =>
                         coin.name.toLowerCase().includes(search.toLowerCase()) ||
                         coin.symbol.toLowerCase().includes(search.toLowerCase())
                     )
-                    .map(coin => <CoinRow key={coin.id} coin={coin} />)
+                    .map(coin => <CoinRow key={coin.id} coin={coin} portfolioView={portfolioView} />)
                 }
             </div>
         </>

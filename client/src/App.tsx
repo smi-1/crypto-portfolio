@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NavBar } from './components/NavBar'
 import { Content } from './components/Content'
@@ -11,23 +11,29 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import { Dashbar } from "./components/Dashbar";
 import { TestMessage } from './components/TestMessage';
 import { ROUTES } from './components/Routes';
+import { useLocation } from "react-router-dom";
 
 function AppContent() {
   const [showOverlay, setShowOverlay] = useState(false);
   const { user } = useAuth();
+  const location = useLocation();
+
+  useEffect(() => {
+    setShowOverlay(false);
+  }, [location]);
 
   return (
-    <BrowserRouter>
-      <NavBar onMenuClick={() => setShowOverlay(prev => !prev)} isOpen={showOverlay} />
+    <>
+      <NavBar overlayOpen={showOverlay} overlayClose={() => setShowOverlay(false)} overlayToggle={() => setShowOverlay(prev => !prev)} />
       <main>
         <Overlay isOpen={showOverlay} onClose={() => setShowOverlay(prev => !prev)}>
           <SideBar />
         </Overlay>
         <Routes>
           <Route path="/" element={
-            <> 
-            <Content />
-            <SideBar />
+            <>
+              <Content />
+              <SideBar />
             </>
           } />
           <Route path={ROUTES.LOGIN} element={<FormLogin />} />
@@ -41,14 +47,16 @@ function AppContent() {
           />
         </Routes>
       </main>
-    </BrowserRouter>
+    </>
   );
 }
 
 function App() {
   return (
     <AuthProvider>
-      <AppContent /> {/* AuthProvider wrappas runt allt */}
+      <BrowserRouter>
+        <AppContent /> {/* AuthProvider wrappas runt allt */}
+      </BrowserRouter>
     </AuthProvider>
   );
 }
