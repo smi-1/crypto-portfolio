@@ -426,7 +426,6 @@ button {
   cursor: pointer;
   border-radius: 14px;
   transition: all 233ms ease;
-  outline: 1px solid rgb(111, 0, 255);
   border-radius: 4px;
 }
 
@@ -481,6 +480,7 @@ button {
 }
 
 .itemRow:has(.price-flash) {
+  z-index: 800;
   animation: flash 2s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
@@ -1560,7 +1560,7 @@ button {
 }
 
 .itemRow {
-  z-index: 600;
+  z-index: 400;
 }
 
 .coin-row {
@@ -1575,4 +1575,41 @@ button {
 
 a {
   display: grid;
+}
+
+.side-top {
+  background-image: radial-gradient(#0004ff54, rgba(100, 2, 219, 0));
+}
+
+/* Inline | http://localhost:5173/ */
+
+.side-top {
+  /* background-image: radial-gradient(#5000ff54, rgba(100, 2, 219, 0)); */
+  background-image: radial-gradient(#0004ff54, rgba(100, 2, 219, 0));
+}
+
+/* Inline | http://localhost:5173/ */
+
+.dash-label {
+  /* font-size: calc(9.25px); */
+  font-size: calc(11px);
+}
+
+.content-filters {
+  margin-bottom: -1px;
+}
+
+.itemRow {
+  /* margin: 0px 0px 1px 0px; */
+  margin: 1px 0px 0px 0px;
+}
+
+.itemRow:hover {
+  /* outline: 1px solid rgb(111, 0, 255); */
+  /* z-index: 600; */
+  border: 1px solid rgb(111, 0, 255);
+}
+
+.itemRow {
+  border: 1px solid rgba(0, 0, 0,0);
 }
