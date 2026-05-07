@@ -23,7 +23,7 @@ export function CanvasComponent() {
         const y = e.clientY - rect.top;
 
         ctx.clearRect(0, 0, width, height); // Rensa föregående linjer
-        ctx.lineWidth = 0.5;
+        ctx.lineWidth = 0.25;
         ctx.setLineDash([1, 1]); // [strecklängd, mellanrum]
         ctx.strokeStyle = "rgba(255, 255, 255, 0.27)";
         // Vertikal linje
@@ -70,7 +70,7 @@ export function CanvasComponent() {
     }, [])
 
     return (
-        <div className="canvas-wrap" style={{ position: "relative", width, height }}>
+        <div className="canvas-wrap" style={{ position: "relative" }}>
             <canvas
                 className="canvas-graph"
                 ref={canvasRef}
