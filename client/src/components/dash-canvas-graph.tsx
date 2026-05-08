@@ -20,11 +20,9 @@ export function CanvasComponent() {
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        //const canvas_zoom = (width - canvas?.clientWidth) / (canvas?.clientWidth)
         const canvas_zoom = (canvas?.clientWidth) / (width)
-        console.log(width,canvas?.clientWidth, canvas_zoom)
         const rect = canvas.getBoundingClientRect();
-        const x = (e.clientX - rect.left)   / canvas_zoom
+        const x = (e.clientX - rect.left) / canvas_zoom
         const y = (e.clientY - rect.top) / canvas_zoom
 
         ctx.clearRect(0, 0, width, height+vertical_padding*2+padding); // Rensa föregående linjer

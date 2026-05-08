@@ -8,7 +8,7 @@ interface ContentFiltersProps {
     search: string;
     setSearch: (value: string) => void;
     portfolioView: boolean;
-    setPortfolioView: (value: boolean) => void;
+    setPortfolioView: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 
@@ -42,7 +42,9 @@ export function ContentFilters({ listView, setListView, search, setSearch, portf
                     <img src={grid} className="filter-src" alt="list" />
                 </button>
                 <div className="portfolioFilterWrap">
-                    <button className={`portfolioFilterBtn ${portfolioView ? "portfolioViewActive" : ""}`} onClick={() => setPortfolioView(prev => !prev)}>Portfolio view</button>
+                    <button className={`portfolioFilterBtn ${portfolioView ? "portfolioViewActive" : ""}`} onClick={() => setPortfolioView(prev => !prev)}><div className="portfolioViewActiveWrap">
+                        <div className="portfolioViewSwitch"><div className="icon_diamond"></div>
+                    </div><p>Portfolio view</p></div></button>
                 </div>
             </div>
         </div>

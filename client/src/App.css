@@ -1739,3 +1739,52 @@ background-position: calc(50%) calc(50% - 1px);
   height: 100%;
   width: 100%;
 }
+
+
+
+/* Inline | http://localhost:5173/ */
+
+.portfolioFilterBtn {
+  /* background: #291c36; */
+  /* width: 105px; */
+  background: #291c3600;
+  width: 117px;
+}
+
+.portfolioViewActive {
+  /* border: 1px solid limegreen; */
+  border: 1px solid #32cd3200;
+}
+
+/* Inline | http://localhost:5173/ */
+
+.portfolioViewActiveWrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.portfolioFilterBtn p {
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.portfolioViewSwitch {
+  width: 20px;
+  height: 20px;
+  background: #23232300;
+display: grid;
+place-content: center;
+}
+
+.portfolioViewActive .icon_diamond {
+  background: lime;
+}
+.icon_diamond{
+width: 10px;
+height: 10px;
+transform: rotate(45deg);
+transition: all 333ms ease;
+background: #252525;
+}
