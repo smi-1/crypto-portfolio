@@ -8,6 +8,7 @@ export function CanvasComponent() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const padding = 22
     const width = 844.5
+    const vertical_padding = 11
     const height = 165
 
     const overlayRef = useRef<HTMLCanvasElement>(null);
@@ -20,16 +21,16 @@ export function CanvasComponent() {
 
         const rect = canvas.getBoundingClientRect();
         const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const y = e.clientY - rect.top
 
-        ctx.clearRect(0, 0, width, height); // Rensa föregående linjer
+        ctx.clearRect(0, 0, width, height+vertical_padding*2+padding); // Rensa föregående linjer
         ctx.lineWidth = 0.25;
         ctx.setLineDash([1, 1]); // [strecklängd, mellanrum]
         ctx.strokeStyle = "rgba(255, 255, 255, 0.27)";
         // Vertikal linje
         ctx.beginPath();
         ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
+        ctx.lineTo(x, height+vertical_padding*2);
         ctx.stroke();
 
         // Horisontell linje
@@ -80,12 +81,12 @@ export function CanvasComponent() {
             <canvas
                 ref={overlayRef}
                 width={width}
-                height={height}
+                height={height+vertical_padding*2}
                 style={{ position: "absolute", top: 0, left: 0 }}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={() => {
                     const ctx = overlayRef.current?.getContext("2d");
-                    ctx?.clearRect(0, 0, width, height); // Rensa när musen lämnar
+                    ctx?.clearRect(0, 0, width, height+vertical_padding*2); // Rensa när musen lämnar
                 }}
             />
         </div>
