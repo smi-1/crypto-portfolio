@@ -1727,7 +1727,7 @@ background-position: calc(50%) calc(50% - 1px);
 
   border: none;
   border-radius: 3px;
-  margin: 11px 0px;
+  margin: 0px 0px 11px 0px;
   padding: 11px 2px;
   place-items: center;
   align-items: center;
