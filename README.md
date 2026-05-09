@@ -4,7 +4,7 @@ Full stack crypto portfolio tracker built with React, TypeScript, Node/Express, 
 
 ## Tech Stack
 React · TypeScript · Node.js · Express · PostgreSQL · Prisma · Supabase
-
+- in progress: PostgreSQL · Prisma · Supabase
 ## Features
 - Live coin data from CoinMarketCap
 - User authentication
